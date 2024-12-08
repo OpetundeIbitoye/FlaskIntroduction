@@ -1,0 +1,294 @@
+/* Center the entire layout */
+body {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    min-height: 100vh; /* Full viewport height */
+    margin: 0;
+    background-color: #f4f4f9; /* Light gray background */
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styling */
+h1 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+form {
+    margin: 20px auto; /* Center-align form */
+    padding: 20px;
+    width: 90%;
+    max-width: 500px; /* Adjust form width */
+}
+
+form {
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    padding: 20px;
+    box-sizing: border-box; /* Ensure padding doesn't affect the width */
+    margin: 20px auto; /* Center form with margin */
+}
+
+
+
+/* Section Separation */
+h2 {
+    margin-top: 40px;
+    text-align: center;
+    color: #333;
+}
+
+/* Add spacing between Filter and Table */
+form[method="GET"] {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input, button, select {
+    width: 100%; /* Full-width inputs */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+/* Table Styling */
+table {
+    border-collapse: collapse;
+    width: 100%; /* Full width for table */
+    margin: 20px 0; /* Space above and below the table */
+    background: #ffffff; /* White background for the table */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Ensure rounded corners apply */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    table-layout: fixed; /* Consistent column width */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center; /* Center-align all text in cells */
+    word-wrap: break-word; /* Prevent overflow of long text */
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase; /* Make header text bold and uppercase */
+}
+
+/* Fix uneven rows */
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray background for even rows */
+}
+
+tr:hover {
+    background-color: #e6f7ff; /* Light blue hover effect */
+}
+
+/* Table Image Styling */
+img {
+    width: 80px; /* Limit image width */
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Align Content */
+.container {
+    max-width: 1200px; /* Limit width of content */
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+input::placeholder {
+    text-align: center; /* Centers the placeholder text */
+    color: #888; /* Optional: Set a light gray color for the placeholder */
+}
+
+input {
+    text-align: center; /* Centers the user input as well */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Center placeholder text for input fields */
+input::placeholder,
+select::placeholder {
+    text-align: center; /* Centers the placeholder text */
+    color: #888; /* Optional: Light gray color */
+}
+
+/* Style for input fields */
+input, select {
+    text-align: center; /* Centers user input and selection */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Style for the "Choose File" upload button */
+input[type="file"] {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888; /* Optional: Light gray for text */
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+input[type="file"] {
+    display: block; /* Makes the element a block */
+    margin: 0 auto; /* Centers it horizontally */
+    text-align: center; /* Ensures the text aligns properly */
+    padding: 10px; /* Adds some padding for better appearance */
+}
+
+/* Style for the links in the Actions column */
+.actions-column {
+    text-align: center; /* Center-align the text in the column */
+    display: flex;
+    flex-direction: column; /* Stack the links vertically */
+    gap: 5px; /* Add space between links */
+}
+
+.actions-column a {
+    text-decoration: none; /* Remove underline */
+    color: #007bff; /* Make the text blue */
+    font-weight: bold; /* Bold text */
+    font-size: 14px; /* Adjust font size */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.actions-column a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* Optional: Add padding and alignment to table cells */
+td {
+    vertical-align: middle; /* Align content vertically in the middle */
+    padding: 10px;
+}
+
+/* Center the form on the page */
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+}
+
+/* Add consistent styling for headers */
+.page-header {
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+/* Form input styling */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.chart-button {
+    text-align: right; /* Align the button to the right */
+    margin-right: 20px; /* Add space from the right edge */
+    margin-top: 20px; /* Keep the spacing from the table consistent */
+}
+
+
+.chart-button .btn {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    font-size: 18px; /* Larger font size */
+    font-weight: bold; /* Bold text */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor */
+    display: inline-block; /* Make it a block-level button */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+.chart-button .btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inventory.css') }}">
+</head>
+
+
+<body>
+    <div class="container">
+        <a href="/landing">Go Back to Homepage</a>
+        <h1>Dee's AfriMart</h1>
+        <h3>Home of African Goodies and Foods... Visit us today</h3>
+
+        <!-- Product Form -->
+        <form action="/inventory/add" method="POST" enctype="multipart/form-data">
+            <label for="name">Product Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" required>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" required>
+
+            <label for="price">Price:</label>
+            <input type="number" step="0.01" id="price" name="price" required>
+
+            <label for="expiry_date">Expiry Date:</label>
+            <input type="date" id="expiry_date" name="expiry_date" required>
+
+            <label for="store_name">Store Name:</label>
+            <input type="text" id="store_name" name="store_name" required>
+
+            <label for="image">Upload Image:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <button type="submit">Add Product</button>
+        </form>
+
+        <!-- Filter Form
+        <form method="GET" action="/inventory">
+            <label for="category">Filter by Category:</label>
+            <select name="category" id="category">
+                <option value="">All</option>
+                {% for category in categories %}
+                <option value="{{ category.category }}">{{ category.category }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Filter</button>
+        </form> -->
+
+        <form method="GET" action="/inventory">
+            <label for="category">Filter by Category:</label>
+            <select name="category" id="category">
+                <option value="">All</option>
+                {% for category in categories %}
+                    <option value="{{ category[0] }}" {% if request.args.get('category') == category[0] %}selected{% endif %}>
+                        {{ category[0] }}
+                    </option>
+                {% endfor %}
+            </select>
+            <button type="submit">Filter</button>
+        </form>
+        
+        
+        <!-- Product Table -->
+        <h2>Products</h2>
+        <table>
+            <tr>
+                <th><a href="/inventory?sort_by=name">Name</a></th>
+                <th><a href="/inventory?sort_by=category">Category</a></th>
+                <th><a href="/inventory?sort_by=quantity">Quantity</a></th>
+                <th><a href="/inventory?sort_by=price">Price</a></th>
+                <th><a href="/inventory?sort_by=expiry_date">Expiry Date</a></th>
+                <th><a href="/inventory?sort_by=store_name">Store Name</a></th>
+                <!-- <th>Image</th> -->
+                <th>Actions</th>
+                <th>Days Until Expiry</th>
+            </tr>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>${{ product.price }}</td>
+                <td>{{ product.expiry_date.strftime('%Y-%m-%d') }}</td>
+                <td>{{ product.store_name }}</td>
+                <!-- <td>
+                    {% if product.image_path %}
+                    <img src="{{ url_for('static', filename=product.image_path) }}" alt="{{ product.name }}" width="100">
+                    {% else %}
+                    No Image
+                    {% endif %}
+                </td> -->
+                <td class = "actions-column">
+                    <a href="/inventory/update/{{ product.id }}">Update</a>
+                    <a href="/inventory/delete/{{ product.id }}">Delete</a>
+                </td>
+
+                <td>{{ (product.expiry_date - datetime.utcnow()).days }} days</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <!-- View Inventory Chart Button -->
+        <div class="chart-button">
+            <a href="/inventory/chart" class="btn">View Inventory Chart</a>
+        </div>
+    </div>
+</body>
+</html>

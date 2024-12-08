@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inventory.css') }}">
+</head>
+<body>
+    <h1 class="page-header">Update Product</h1>
+    <form action="/inventory/update/{{ product.id }}" method="POST" enctype="multipart/form-data" class="form-container">
+        <label for="name">Product Name:</label>
+        <input type="text" id="name" name="name" value="{{ product.name }}" required>
+
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" value="{{ product.category }}" required>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" value="{{ product.quantity }}" required>
+
+        <label for="price">Price:</label>
+        <input type="number" step="0.01" id="price" name="price" value="{{ product.price }}" required>
+
+        <label for="expiry_date">Expiry Date:</label>
+        <input type="date" id="expiry_date" name="expiry_date" value="{{ product.expiry_date.strftime('%Y-%m-%d') }}" required>
+
+        <label for="store_name">Store Name:</label>
+        <input type="text" id="store_name" name="store_name" value="{{ product.store_name }}" required>
+
+        <label for="image">Update Image:</label>
+        <input type="file" id="image" name="image">
+
+        <button type="submit">Update Product</button>
+    </form>
+</body>
+</html>
